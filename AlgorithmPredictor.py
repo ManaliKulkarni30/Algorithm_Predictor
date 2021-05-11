@@ -21,6 +21,13 @@ class Algorithm:
         output = cobj.predict(self.data_test)
         Accuracy = accuracy_score(self.target_test,output)#IMP
         self.AlgoDict["K Nearest Neighbour"] = Accuracy * 100
+        
+     def NaiveBayes(self):
+        cobj = GaussianNB()
+        cobj.fit(self.data_train,self.target_train)
+        output = cobj.predict(self.data_test)
+        Accuracy = accuracy_score(self.target_test,output)#IMP
+        self.AlgoDict["Naive Bayes"] = Accuracy * 100
 
     def predictAlgorithm(self):
 
