@@ -33,6 +33,23 @@ class AlgorithmPredictor:
         output = cobj.predict(self.data_test)
         Accuracy = accuracy_score(self.target_test,output)#IMP
         self.AlgoDict["Naive Bayes"] = Accuracy * 100
+        
+    #Training and Testing using Logistic Regression
+    def LogisticRegression1(self):
+        cobj = LogisticRegression(max_iter=2000)
+        cobj.fit(self.data_train,np.ravel(self.target_train))
+        output = cobj.predict(self.data_test)
+        Accuracy = accuracy_score(self.target_test,output)#IMP
+        self.AlgoDict["Logistic Regression"] = Accuracy * 100
+
+    #Training and Testing using Random Forest
+    def RandomForest(self):
+        cobj = RandomForestClassifier(n_estimators=100)
+        cobj.fit(self.data_train,np.ravel(self.target_train))
+        output = cobj.predict(self.data_test)
+        Accuracy = accuracy_score(self.target_test,output)#IMP
+        self.AlgoDict["Random Forest Classifier"] = Accuracy * 100
+
 
     #Method to prdict algorithm
     def predictAlgorithm(self):
@@ -40,7 +57,9 @@ class AlgorithmPredictor:
         self.DecisionTree()
         self.KNN()
         self.NaiveBayes()
-
+        self.LogisticRegression1()
+        self.RandomForest()
+        
         max_key = max(self.AlgoDict, key=self.AlgoDict.get)
 
         print("Preferable Algorithm for your Data Set is: ",max_key)
