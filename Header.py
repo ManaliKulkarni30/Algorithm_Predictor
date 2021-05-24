@@ -1,3 +1,7 @@
+# ===================
+# Imports
+# ===================
+
 import numpy as np
 import pandas as pd
 from sklearn import tree
@@ -6,12 +10,5 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.naive_bayes import GaussianNB
-
-
-#Logistic Regression
-#Naïve Bayes
-#Stochastic Gradient Descent
-#K-Nearest Neighbours
-#Decision Tree
-#Random Forest
-#Support Vector Machine
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
